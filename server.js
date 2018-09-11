@@ -13,12 +13,19 @@ io.on('connection', (socket) => {
     console.log(`[server] Socket connected: ${socket.id}`)
     socket.on('get-user-tweets', async (user) => {
         console.log(`[server] received "get-user-tweets" socket.io event for twitter user "${user}"`)
+        
+        if (typeof user !== 'string') {
+            const err = TypeError('user must be a string type')
+            io.emit('got-user-tweets', err, user, null)
+            return
+        }
+
         try {
             const tweets = await tw.getUserTweets(user)
-            io.emit('got-user-tweets', null, tweets)
+            io.emit('got-user-tweets', null, user, tweets)
             console.log(`[server] emit socket.io event "got-user-tweets"`)
         } catch (err) {
-            io.emit('got-user-tweets', err, null)
+            io.emit('got-user-tweets', err, user, null)
             console.log(`[server] emit socket.io event "got-user-tweets" with error:`)
             console.error(err)
         }

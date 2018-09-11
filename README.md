@@ -57,11 +57,14 @@ Navigate to http://localhost:3000 for an example. Press the "get tweets" button 
 // request tweets from a twitter account 
 socket.emit('get-user-tweets', 'barackobama')
 
-socket.on('got-user-tweets', (err, tweets) => {
+socket.on('got-user-tweets', (err, user, tweets) => {
     
     // there was an error downloading tweets
     if (err) throw err
-    // an array of UTF-8 tweets
+
+    // user will always be set, even if there is an error
+
+    // an array of UTF-8 tweets or null if there was an error
     console.log(tweets)
 })
 ```
