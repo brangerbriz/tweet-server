@@ -1,5 +1,5 @@
 const path = require('path')
-require('dotenv').config({ path: path.resolve(__dirname, '..', '.env')})
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') })
 const Twit = require('twit')
 const T = new Twit({
     // goto: https://apps.twitter.com/ for keys
@@ -12,7 +12,7 @@ const T = new Twit({
 
 async function getUserTweets(user) {
     // https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
-    
+
     const tweets = []
     let batch = await getUserTweetBatch(user)
 

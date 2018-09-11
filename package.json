@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Nick Briz <nickbriz@gmail.com> (http://nickbriz.com)",
+  "author": "Nick Briz <nickbriz@gmail.com> (http://nickbriz.com) + Brannon Dorsey <brannon@brannondorsey.com>",
   "license": "GPL-3.0",
   "dependencies": {
     "cors": "^2.8.4",
