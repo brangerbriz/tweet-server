@@ -22,20 +22,18 @@
                     tweets:[]
                 },
                 mounted:function(){
-                    socket.on('got-tweets',(data)=>{
-                        this.parseTweets(data)
+                    socket.on('got-user-tweets',(err, data)=>{
+                        if (err) alert(`Error downloading tweets for ${this.user}`)
+                        else data.forEach(tweet => this.tweets.push(tweet))
                     })
                 },
                 methods:{
                     getTweets:function(){
+                        this.tweets = []
                         socket.emit('get-user-tweets',{
                             user:this.user,
                             // id:1025454615599505400 // NOTE was playing w/this for recursive calls
                         })
-                    },
-                    parseTweets:function(data){
-                        console.log(data)
-                        data.forEach(t=>this.tweets.push(t.text))
                     }
                 }
             })
