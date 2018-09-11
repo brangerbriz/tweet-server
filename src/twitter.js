@@ -1,4 +1,5 @@
-require('dotenv').config()
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env')})
 const Twit = require('twit')
 const T = new Twit({
     // goto: https://apps.twitter.com/ for keys
@@ -16,12 +17,12 @@ async function getUserTweets(user) {
     let batch = await getUserTweetBatch(user)
 
     tweets.push(...batch)
-    console.log(`Got ${batch.length} new tweets. Total ${tweets.length}`)
+    console.log(`[twitter] Got ${batch.length} new tweets. Total ${tweets.length}`)
     while (batch.length > 1) {
         let id = batch[batch.length - 1].id
         batch = await getUserTweetBatch(user, id)
         tweets.push(...batch)
-        console.log(`Got ${batch.length} new tweets. Total ${tweets.length}`)
+        console.log(`[twitter] Got ${batch.length} new tweets. Total ${tweets.length}`)
     }
     return tweets.map(tweet => tweet.text)
 }

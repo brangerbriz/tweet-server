@@ -18,7 +18,7 @@
             const app = new Vue({
                 el:'#app',
                 data:{
-                    user:'nbriz',
+                    user:'barackobama',
                     tweets:[]
                 },
                 mounted:function(){
@@ -30,10 +30,7 @@
                 methods:{
                     getTweets:function(){
                         this.tweets = []
-                        socket.emit('get-user-tweets',{
-                            user:this.user,
-                            // id:1025454615599505400 // NOTE was playing w/this for recursive calls
-                        })
+                        socket.emit('get-user-tweets', this.user)
                     }
                 }
             })
