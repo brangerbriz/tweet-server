@@ -12,6 +12,11 @@ cd tweet-server
 # install the dependencies
 npm install
 
+# rename the example env file
+cp .env-example .env
+
+# ... edit .env using your own twitter API credentials
+
 # start the server
 npm start
 ```
