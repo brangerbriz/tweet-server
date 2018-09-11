@@ -3,13 +3,12 @@ const path = require('path')
 const express = require('express')
 const app = express()
 const http = require('http').Server(app)
-const cors = require('cors')
 const io = require('socket.io')(http)
 const tw = require('./src/twitter.js')
 
-app.use(cors())
 app.use(express.static(path.join(__dirname, 'www')))
 
+io.set('origins', '*:*')
 io.on('connection', (socket) => {
     console.log(`[server] Socket connected: ${socket.id}`)
     socket.on('get-user-tweets', async (user) => {

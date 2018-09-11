@@ -10,7 +10,6 @@
   "author": "Nick Briz <nickbriz@gmail.com> (http://nickbriz.com) + Brannon Dorsey <brannon@brannondorsey.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "socket.io": "^2.1.1",
