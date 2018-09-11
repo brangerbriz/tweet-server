@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>twitter test</title>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model:value="user">
+            <button @click="getTweets">get tweets</button>
+            <hr>
+            <div v-for="tweet in tweets">{{tweet}}</div>
+        </div>
+        <script src="js/vue.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const socket = io()
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    user:'nbriz',
+                    tweets:[]
+                },
+                mounted:function(){
+                    socket.on('got-tweets',(data)=>{
+                        this.parseTweets(data)
+                    })
+                },
+                methods:{
+                    getTweets:function(){
+                        socket.emit('get-user-tweets',{
+                            user:this.user,
+                            // id:1025454615599505400 // NOTE was playing w/this for recursive calls
+                        })
+                    },
+                    parseTweets:function(data){
+                        console.log(data)
+                        data.forEach(t=>this.tweets.push(t.text))
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

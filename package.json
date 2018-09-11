@@ -1,0 +1,18 @@
+{
+  "name": "twitter-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Nick Briz <nickbriz@gmail.com> (http://nickbriz.com)",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1",
+    "twit": "^2.2.11"
+  }
+}
