@@ -15,11 +15,11 @@ app.get('/api/:user', async (req, res) => {
     try {
 
         const tweets = await tw.getUserTweets(user)
-        console.log(`[server] /api/:user got tweets`)
+        console.log(`[server] /api/:user got tweets for user ${user}`)
         res.json({ error: null, tweets: tweets })
     } catch (err) {
 
-        console.log(`[server] /api/:user got tweets with error:`)
+        console.log(`[server] /api/:user got tweets for user ${user} with error:`)
         console.error(err)
 
         let message = `Error fetching tweets for user ${user}`
