@@ -87,3 +87,8 @@ socket.on('got-user-tweets', (err, user, tweets) => {
 })
 ```
 
+## License
+
+Copyright (C) 2018 Branger_Briz
+
+Licensed under the [GPL v3](LICENSE) or any later version. 
