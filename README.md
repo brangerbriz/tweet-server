@@ -1,6 +1,6 @@
 # Tweet Server
 
-Socket.io server for downloading several thousand tweets for a user.
+HTTP + Socket.io server for downloading several thousand Tweets for a specific twitter user.
 
 ## Getting Started
 
