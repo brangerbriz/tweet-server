@@ -1,6 +1,6 @@
 # Tweet Server
 
-Socket.io server for downloading several thousand tweets for a user.
+HTTP + Socket.io server for downloading several thousand Tweets for a specific twitter user.
 
 ## Getting Started
 
@@ -87,3 +87,8 @@ socket.on('got-user-tweets', (err, user, tweets) => {
 })
 ```
 
+## License
+
+Copyright (C) 2018 Branger_Briz
+
+Licensed under the [GPL v3](LICENSE) or any later version. 
